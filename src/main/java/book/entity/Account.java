@@ -1,4 +1,4 @@
-package book;
+package book.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -9,18 +9,16 @@ import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @Entity
 public class Account {
-
+    @Id
+    @GeneratedValue
+    private Long id;
     @JsonIgnore
     public String password;
     public String username;
     @OneToMany(mappedBy = "account")
     private Set<Book> books = new HashSet<>();
-    @Id
-    @GeneratedValue
-    private Long id;
 
     public Account(String name, String password) {
         this.username = name;

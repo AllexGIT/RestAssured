@@ -1,5 +1,5 @@
-import book.Account;
-import book.Book;
+import book.entity.Account;
+import book.entity.Book;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.http.ContentType;
@@ -15,10 +15,8 @@ import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.apache.http.HttpStatus.SC_OK;
 
-
 public class RestAssuredTest {
     private static Account account;
-
     private static int counter = 2;
 
     @Before
@@ -32,7 +30,6 @@ public class RestAssuredTest {
         response.then()
                 .statusCode(SC_CREATED)
                 .log();
-
     }
 
     @After

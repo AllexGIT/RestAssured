@@ -1,4 +1,4 @@
-package book;
+package book.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -10,6 +10,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Book {
 
+    @Id
+    @GeneratedValue
+    private Long id;
     public String name;
     public String author;
     public String description;
@@ -17,9 +20,6 @@ public class Book {
     @JsonIgnore
     @ManyToOne
     private Account account;
-    @Id
-    @GeneratedValue
-    private Long id;
 
     Book() { // jpa only
     }
